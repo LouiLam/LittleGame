@@ -25,7 +25,7 @@
 	 */
 	public static int switchViewChairIDByAnti(int chairID,int myselfID,int myselfViewID,int playerNum)
 	{
-		int result=chairID+myselfViewID-myselfID;
+		int result=(chairID+myselfViewID-myselfID)%playerNum;
 		if(result<0)
 			result+=playerNum;
 		return result;				
