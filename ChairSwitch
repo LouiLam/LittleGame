@@ -1,0 +1,32 @@
+/**顺时针转换椅子号（Clockwise）
+	 * 布局文件为逆时针布局，并且1正下方（自己），2右方，3上方，0左方。
+	 * @param chairID 椅子号ID
+	 * @param myselfID  我自己的逻辑椅子号ID
+	 * @param myselfViewID	我自己的界面椅子号ID
+	 * @param playerNum	玩家数量
+	 * @return
+	 */
+	public static int switchViewChairID(int chairID,int myselfID,int myselfViewID,int playerNum)
+	{
+		int result=0;
+		if(chairID%2==0)
+			result=(chairID+myselfViewID+myselfID)%playerNum;
+		else
+			result=(chairID+myselfViewID+myselfID-2)%playerNum;
+		return result;
+	}
+	/**逆时针转换椅子号（Anti-clockwise）
+	 * 布局文件为逆时针布局，并且1正下方（自己），2右方，3上方，0左方。
+	 * @param chairID  椅子号ID
+	 * @param myselfID 我自己的逻辑椅子号ID
+	 * @param myselfViewID 我自己的界面椅子号ID
+	 * @param playerNum 玩家数量
+	 * @return
+	 */
+	public static int switchViewChairIDByAnti(int chairID,int myselfID,int myselfViewID,int playerNum)
+	{
+		int result=chairID+myselfViewID-myselfID;
+		if(result<0)
+			result+=playerNum;
+		return result;				
+	}
